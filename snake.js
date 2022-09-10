@@ -71,8 +71,7 @@ let grid=document.getElementById("gamearea");
 //          node.classList.add('sbody');
 //         grid.appendChild(node);
     
-
-
+// newchanges  
 var snake=[{x:10,y:12}];
 var food={x:14,y:6};
     food.x=Math.round(2+16*Math.random());

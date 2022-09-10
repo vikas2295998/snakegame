@@ -21,13 +21,22 @@
 }
 .greeting{
   /* font-family: Arial, Helvetica, sans-serif; */
+  width: 100vw;
+  display: flex;
+  /* background-color: red; */
+  justify-content:center;
+  align-items: center;
+
   font-size: 2.5rem;
   letter-spacing: .1rem;
   font-weight: 800;
   color: white;
   text-shadow: 1px 1px 2px red;
-  margin-top: 20vh;
+  margin-top: min(10vw,10vh);
 
+}
+.greeting span{
+  margin: 5px;
 }
 .red{
   color: red;
@@ -71,6 +80,7 @@
   font-size: 2rem;
 }
 .heading input{
+  max-width: 80vw;
   border:none;
   outline: none;
   color: aqua;
@@ -310,6 +320,14 @@
 
 
 @media (max-width:500px) {
+   .greeting{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: min(10vw,10vh);
+   }
    .button{
     display: grid;
    }

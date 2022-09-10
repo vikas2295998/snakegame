@@ -316,8 +316,11 @@
     .scoreboard{
       /* width: 40vw;
       height: 20vw; */
-      top:1vh;
-      right:2vw;
+      position: absolute;
+  top: 8vh;
+  right: 3vh;
+      /* top:15vw;
+      right:2vw; */
       border: 2px solid red;
       padding: 10px;
     }
@@ -338,13 +341,16 @@
   align-items:center;
 }
 #gamearea{
-  height: 120vw;
+  height: 110vw;
   width: 95vw;
   position: relative;
-  top:50px;
+  top:24vh;
 }
 .design{
   flex-direction: row;
+}
+.design .coler{
+  margin:5px;
 }
 .h1 {
  left:10px;
@@ -355,10 +361,10 @@
     top:100px;
 
   }
-  .scoreboard{
+  /* .scoreboard{
     top:10px;
     right: 10px;
-  }
+  } */
   .design{
     left:2vw;
   }

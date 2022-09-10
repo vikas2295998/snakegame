@@ -1,3 +1,64 @@
+
+
+   
+
+
+  document.getElementById('clr1').style=`background-color:#CE5ABE;`;
+  document.getElementById('clr2').style=`background-color:#0A0832;`;
+  document.getElementById('clr3').style=`background-color:#1eae81;`;
+  document.getElementById('clr4').style=`background-color:#BA58DA;`;
+ const fun=(ele)=>{
+    speed=count;
+    if(ele===2){
+        snakedir.x=-1;
+        snakedir.y=0;
+    }
+    else if(ele===8){
+        snakedir.x=1;
+        snakedir.y=0;
+    }
+    else if(ele===4){
+        snakedir.x=0;
+         snakedir.y=-1;
+    }
+    else if(ele===6){
+        snakedir.x=0;
+        snakedir.y=1;
+    }
+    else{
+        speed=0;
+    }
+}
+const changecolor=(ele)=>{
+    console.log("vikas");
+    let clr="pink";
+    document.getElementById('clr1').style=`background-color:#CE5ABE;`;
+    document.getElementById('clr2').style=`background-color:#0A0832;`;
+    document.getElementById('clr3').style=`background-color:#1eae81;`;
+    document.getElementById('clr4').style=`background-color:#BA58DA;`;
+        if(ele===1){
+            clr="#CE5ABE";
+            document.getElementById('clr1').style=`background-color:rgb(8, 180, 8);box-shadow:1px 1px 2px white,-1px -1px 2px white,-1px 1px 2px white,1px -1px 2px white,
+            2px 2px 3px white,-2px 2px 3px white,2px -2px 3px white,-2px -2px 3px white;`;
+        }
+        else if(ele===2){
+            clr="#0A0832";
+            document.getElementById('clr2').style=`background-color:rgb(8, 180, 8);box-shadow:1px 1px 2px white,-1px -1px 2px white,-1px 1px 2px white,1px -1px 2px white,
+            2px 2px 3px white,-2px 2px 3px white,2px -2px 3px white,-2px -2px 3px white;`;
+        }
+        else if(ele===3){
+                clr="#1eae81";
+                document.getElementById('clr3').style=`background-color:rgb(8, 180, 8);box-shadow:1px 1px 2px white,-1px -1px 2px white,-1px 1px 2px white,1px -1px 2px white,
+            2px 2px 3px white,-2px 2px 3px white,2px -2px 3px white,-2px -2px 3px white;`;
+        }
+        else{
+             clr="#BA58DA";
+             document.getElementById('clr4').style=`background-color:rgb(8, 180, 8);box-shadow:1px 1px 2px white,-1px -1px 2px white,-1px 1px 2px white,1px -1px 2px white,
+            2px 2px 3px white,-2px 2px 3px white,2px -2px 3px white,-2px -2px 3px white;`;
+        }
+        document.getElementById("BODY").style.background=`${clr}`;
+}
+
 let grid=document.getElementById("gamearea");
 
 //         var node = document.createElement("div");
@@ -17,9 +78,13 @@ var food={x:14,y:6};
     food.y=Math.round(2+16*Math.random());
 var snakedir={x:0,y:0};
 var ptime=0;
-var speed=4;
+var count=4;
+var speed=count;
 var score=0;
 localStorage.setItem('highScore',0);
+setInterval(() => {
+    count++;
+}, 10000);
 function main(ctime){
     window.requestAnimationFrame(main);
  
@@ -29,7 +94,7 @@ function main(ctime){
     gameEngine();
 }
 function isColide(){
-    if(snake[0].x<0|| snake[0].x>=19|| snake[0].y<0|| snake[0].y>=19)
+    if(snake[0].x<=0|| snake[0].x>20|| snake[0].y<=0|| snake[0].y>20)
     return true;
     for(let i=1;i<snake.length;i++){
         if(snake[0].x==snake[i].x&&snake[0].y==snake[i].y ) 
@@ -38,6 +103,7 @@ function isColide(){
     return false;
 }
 function gamover(){
+    count=4;
     speed=0;
     document.getElementById('gameover').style.display='block';
     setTimeout(() => {
@@ -45,6 +111,7 @@ function gamover(){
     }, 1500);
     
 }
+
 function gameEngine(){
     grid.innerHTML="";
     document.getElementById('curr').innerHTML=`current score :${score}`;
@@ -77,8 +144,8 @@ function gameEngine(){
         snake[i].x=snake[i-1].x;
         snake[i].y=snake[i-1].y;
     }
-    snake[0].x=(snake[0].x+snakedir.x)%20;
-    snake[0].y=(snake[0].y+snakedir.y)%20;
+    snake[0].x=(snake[0].x+snakedir.x);
+    snake[0].y=(snake[0].y+snakedir.y);
   
     var node1 = document.createElement("div");
     node1.style.gridRowStart=food.x;
@@ -101,9 +168,25 @@ function gameEngine(){
     });
 
 }
+// document.getElementById('top').addEventListener('onclick',()=>{ snakedir.x=-1;
+    // snakedir.y=0;})
+    // console.log(document.getElementsByClassName("bottun"));
+   
+    const startGame=()=>{
+        document.getElementsByClassName('welcome')[0].style.display="none";
+        document.getElementById('BODY').style.display="flex";
+        const name=document.getElementById('name').value;
+        if(name)
+        document.getElementById('yourname').innerText=name;
+        if(document.getElementById('easy').checked == true)  
+            count=4;   
+        else if(document.getElementById('mediam').checked == true)   
+                count=6;   
+        else if(document.getElementById('hard').checked == true)  
+                    count=8;    
 window.addEventListener('keydown',e=>{
     background.play();
-    speed=4;
+    speed=count;
     switch (e.code) {
         case 'ArrowUp':
             snakedir.x=-1;
@@ -126,4 +209,6 @@ window.addEventListener('keydown',e=>{
             break;
     }
 });
+
 window.requestAnimationFrame(main);
+ }

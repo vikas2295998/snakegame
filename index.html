@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/712f14dd93.js" crossorigin="anonymous"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>snakemania</title>
     <link rel="stylesheet" href="snake.css">
 </head>
-<body>
+<body >
+    <div class="welcome">
+        <span class="greeting"><span class="red"> wel</span>come to <span class="red"> snake</span>mania</span>
+        <span class="heading"><input type="text" id="name" placeholder="Please enter your name" autocomplete="new-password" required> </span>
+        <span class="select">
+        <h2>select game leval</h2>
+        <span class="green">easy<input type="radio" name="level" id="easy"></span>
+        <span class="yellow">medium<input type="radio" name="level" id="mediam"></span>
+        <span class="red">hard <input type="radio" name="level" id="hard"></span>
+        </span>
+        <div class="start" onclick="startGame()">start now!!!</div>
+    </div>
+    <div id="BODY">
+    <div class="design">
+        <span class="coler" id="clr1" onclick="changecolor(1)"></span>
+        <span class="coler" id="clr2" onclick="changecolor(2)"></span>
+        <span class="coler" id="clr3" onclick="changecolor(3)"></span>
+        <span class="coler" id="clr4" onclick="changecolor(4)"></span>
+        
+    </div>
+    <div class="h1">hii <span id="yourname">Himanshi</span> !!!</div>
     <div id="gamearea">
     </div>
     <div class="scoreboard">
@@ -19,5 +41,13 @@
         <h2>!!!!!game over!!!!!!</h2>
     </div>
     <script src="snake.js"></script>
+    <div class="button">
+        <span id="toper" class="top btn" onclick="fun(2)"><i class="fa-solid fa-arrow-up"></i></span>
+        <span id="left" class="left btn" onclick="fun(4)"><i class="fa-solid fa-arrow-left"></i></span>
+        <span id="paus" class="paus btn" onclick="fun(5)"><i class="fa-solid fa-circle-pause"></i></span>
+        <span id="right" class="right btn" onclick="fun(6)"><i class="fa-solid fa-arrow-left"></i></span>
+        <span id="bottom" class="bottum btn" onclick="fun(8)"><i class="fa-solid fa-arrow-down"></i></span>
+    </div>
+</div>
 </body>
 </html>

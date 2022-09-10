@@ -1,6 +1,8 @@
 
 
-   
+   const background= new Audio('background.mp3');
+   const eat_music= new Audio('eat_food.mp3');
+   const gameover_music= new Audio('gameover.mp3');
 
 
   document.getElementById('clr1').style=`background-color:#CE5ABE;`;
@@ -8,6 +10,7 @@
   document.getElementById('clr3').style=`background-color:#1eae81;`;
   document.getElementById('clr4').style=`background-color:#BA58DA;`;
  const fun=(ele)=>{
+    background.play();
     speed=count;
     if(ele===2){
         snakedir.x=-1;
@@ -68,9 +71,7 @@ let grid=document.getElementById("gamearea");
 //          node.classList.add('sbody');
 //         grid.appendChild(node);
     
-const background= new Audio('background.mp3');
-const eat_music= new Audio('eat_food.mp3');
-const gameover_music= new Audio('gameover.mp3');
+
 
 var snake=[{x:10,y:12}];
 var food={x:14,y:6};

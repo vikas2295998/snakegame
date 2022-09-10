@@ -10,7 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(-135deg, red, green);
+  background: linear-gradient(-135deg, red, rgb(20, 189, 20));
 }
 #gamearea {
   width: 80vh;

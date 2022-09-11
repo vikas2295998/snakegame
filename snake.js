@@ -12,24 +12,30 @@
  const fun=(ele)=>{
     background.play();
     speed=count;
-    if(ele===2){
+    if(ele===2 && !(snake.length>1 && dir==='down')){
+        (snake.length>1 && dir==='down')
+        
         snakedir.x=-1;
         snakedir.y=0;
+        dir='up';
     }
-    else if(ele===8){
+    else if(ele===8 && !(snake.length>1 && dir==='up')){
         snakedir.x=1;
         snakedir.y=0;
+        dir='down';
     }
-    else if(ele===4){
+    else if(ele===4 && !(snake.length>1 && dir==='right')){
         snakedir.x=0;
          snakedir.y=-1;
+         dir='left';
     }
-    else if(ele===6){
+    else if(ele===6 && !(snake.length>1 && dir==='left')){
         snakedir.x=0;
         snakedir.y=1;
+        dir='right';
     }
     else{
-        speed=0;
+        speed=count;
     }
 }
 const changecolor=(ele)=>{
@@ -81,10 +87,9 @@ var ptime=0;
 var count=4;
 var speed=count;
 var score=0;
+var dir;
 localStorage.setItem('highScore',0);
-setInterval(() => {
-    count++;
-}, 10000);
+
 function main(ctime){
     window.requestAnimationFrame(main);
  
@@ -103,7 +108,6 @@ function isColide(){
     return false;
 }
 function gamover(){
-    count=4;
     speed=0;
     document.getElementById('gameover').style.display='block';
     setTimeout(() => {
@@ -189,20 +193,32 @@ window.addEventListener('keydown',e=>{
     speed=count;
     switch (e.code) {
         case 'ArrowUp':
+            if( snake.length>1 && dir==='down')
+            break;
             snakedir.x=-1;
             snakedir.y=0;
+            dir='up';
             break;
         case 'ArrowDown':
+            if(snake.length>1 && dir==='up')
+            break;
              snakedir.x=1;
              snakedir.y=0;
+             dir='down';
             break;
             case 'ArrowLeft':
+                if(snake.length>1 && dir==='right')
+                break;
                 snakedir.x=0;
                  snakedir.y=-1;
+                 dir='left';
             break;
             case 'ArrowRight':
+                if(snake.length>1 && dir==='left')
+                break;
                 snakedir.x=0;
                  snakedir.y=1;
+                 dir='right';
             break;
     
         default:

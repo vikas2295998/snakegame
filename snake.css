@@ -342,12 +342,13 @@
       border: 2px solid red;
       padding: 10px;
     }
+    
     #highest,
 #curr {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: white;
   text-shadow: 1px 1px 1px rgb(15, 14, 14);
@@ -359,7 +360,7 @@
   align-items:center;
 }
 #gamearea{
-  height: 110vw;
+  height: 100vw;
   width: 95vw;
   position: relative;
   top:24vh;

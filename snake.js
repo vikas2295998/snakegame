@@ -34,6 +34,10 @@
         snakedir.y=1;
         dir='right';
     }
+    else if(ele===5 ){
+        speed=0;
+    }
+
     else{
         speed=count;
     }
